@@ -1,7 +1,7 @@
 import 'package:ClosetApp/components/title.dart';
 import 'package:ClosetApp/layout/box.dart';
 import 'package:ClosetApp/pages/register/register_page.dart';
-import 'package:ClosetApp/utils/router.dart';
+import 'package:ClosetApp/utils/router_utils.dart';
 import 'package:flutter/material.dart';
 
 import '../../components/button.dart';

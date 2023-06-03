@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
 
-abstract class BaseStatelessPage extends StatelessWidget {
-  const BaseStatelessPage({super.key});
+abstract class BasePage extends StatelessWidget {
+  const BasePage({super.key});
 }

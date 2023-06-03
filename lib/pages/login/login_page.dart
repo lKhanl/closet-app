@@ -4,13 +4,13 @@ import 'package:ClosetApp/components/title.dart';
 import 'package:ClosetApp/layout/box.dart';
 import 'package:ClosetApp/pages/base_stateless_page.dart';
 import 'package:ClosetApp/pages/login/login_state_manager.dart';
-import 'package:ClosetApp/utils/router.dart';
+import 'package:ClosetApp/utils/router_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
 import '../register/register_page.dart';
 
-class LoginPage extends BaseStatelessPage {
+class LoginPage extends BasePage {
   LoginPage({Key? key}) : super(key: key);
 
   final _loginStateManager = GetIt.instance.get<LoginStateManager>();
