@@ -8,6 +8,7 @@ class SnackbarUtils {
       'Error',
       message,
       backgroundColor: ThemeColors.error,
+      margin: EdgeInsets.only(top: 10, left: 10, right: 10),
       titleText: Text(
         'Error',
         style: TextStyle(
