@@ -1,4 +1,4 @@
-package edu.eskisehir.untitled
+package edu.eskisehir.closetapp
 
 import io.flutter.embedding.android.FlutterActivity
 
