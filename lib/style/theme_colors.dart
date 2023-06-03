@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 class ThemeColors {
-  static Color white = const Color.fromRGBO(255, 255, 255, 1);
-  static Color purpleLight = const Color.fromRGBO(232, 221, 255, 1);
-  static Color purpleDark = const Color.fromRGBO(20, 40, 175, 1);
-  static Color error = const Color(0xFFED4337);
-  static Color success = const Color(0xFF78BD52);
+  static const Color white = Color.fromRGBO(255, 255, 255, 1);
+  static const Color black = Color.fromRGBO(0, 0, 0, 1);
+  static const Color purpleLight = Color.fromRGBO(232, 221, 255, 1);
+  static const Color purpleDark = Colors.deepPurple;
+  static const Color error = Color(0xFFFF9494);
+  static const Color success = Color(0xFF78BD52);
 }

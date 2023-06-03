@@ -1,7 +1,8 @@
 import 'package:ClosetApp/components/title.dart';
 import 'package:ClosetApp/layout/box.dart';
+import 'package:ClosetApp/pages/register/register_page.dart';
+import 'package:ClosetApp/utils/router.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../components/button.dart';
 import '../../style/theme_colors.dart';
@@ -19,10 +20,13 @@ class InitialPage extends StatelessWidget {
         children: [
           const CustomTitle(text: 'Closet App'),
           Box.h48,
-          Button(text: 'Login', onPressed: () => Get.offAll(() => LoginPage())),
+          Button(
+              text: 'Login',
+              onPressed: () => RouterUtils.goStateless(LoginPage())),
           Box.h16,
           Button(
-              text: 'Register', onPressed: () => Get.offAll(() => LoginPage())),
+              text: 'Register',
+              onPressed: () => RouterUtils.goStateless(RegisterPage())),
         ],
       ),
     );

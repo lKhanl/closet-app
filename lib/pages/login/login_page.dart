@@ -2,10 +2,18 @@ import 'package:ClosetApp/components/button.dart';
 import 'package:ClosetApp/components/text_field.dart';
 import 'package:ClosetApp/components/title.dart';
 import 'package:ClosetApp/layout/box.dart';
+import 'package:ClosetApp/pages/base_stateless_page.dart';
+import 'package:ClosetApp/pages/login/login_state_manager.dart';
+import 'package:ClosetApp/utils/router.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+import '../register/register_page.dart';
+
+class LoginPage extends BaseStatelessPage {
+  LoginPage({Key? key}) : super(key: key);
+
+  final _loginStateManager = GetIt.instance.get<LoginStateManager>();
 
   @override
   Widget build(BuildContext context) {
@@ -16,14 +24,29 @@ class LoginPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const CustomTitle(text: 'Login', fontSize: 30),
-            Box.h48,
-            const CustomTextField(text: 'Email'),
+            Box.h24,
+            CustomTextField(
+                text: 'Email',
+                onChanged: (value) => _loginStateManager.setEmail(value)),
             Box.h16,
-            const CustomTextField(text: 'Password'),
+            CustomTextField(
+                text: 'Password',
+                onChanged: (value) => _loginStateManager.setPassword(value)),
             Box.h16,
             Button(
               text: 'Login',
-              onPressed: () => null,
+              onPressed: () => _loginStateManager.login(),
+            ),
+            Box.h16,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text('Don\'t have an account?'),
+                TextButton(
+                  onPressed: () => RouterUtils.goStateless(RegisterPage()),
+                  child: const Text('Sign up'),
+                ),
+              ],
             ),
           ],
         ),

@@ -1,3 +1,4 @@
+import 'package:ClosetApp/style/theme_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomTitle extends StatelessWidget {
@@ -6,9 +7,10 @@ class CustomTitle extends StatelessWidget {
   final double fontSize;
   final FontWeight fontWeight;
 
-  const CustomTitle({super.key,
+  const CustomTitle({
+    super.key,
     required this.text,
-    this.color = Colors.black,
+    this.color = ThemeColors.purpleDark,
     this.fontSize = 40,
     this.fontWeight = FontWeight.bold,
   });
