@@ -1,4 +1,4 @@
-# Closet App
+# My Combinations App
 
 
 
