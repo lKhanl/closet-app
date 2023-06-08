@@ -1,4 +1,4 @@
-import 'package:ClosetApp/utils/snackbar_utils.dart';
+import 'package:MyCombinationsApp/utils/snackbar_utils.dart';
 
 void validate(Map<String, String> mapOfArguments) {
   String errorMessage = '';

@@ -1,4 +1,4 @@
-package edu.eskisehir.closetapp
+package MyCombinationsApp
 
 import io.flutter.embedding.android.FlutterActivity
 

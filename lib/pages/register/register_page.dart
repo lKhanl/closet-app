@@ -1,10 +1,10 @@
-import 'package:ClosetApp/components/button.dart';
-import 'package:ClosetApp/components/text_field.dart';
-import 'package:ClosetApp/components/title.dart';
-import 'package:ClosetApp/layout/box.dart';
-import 'package:ClosetApp/pages/login/login_page.dart';
-import 'package:ClosetApp/pages/register/register_state_manager.dart';
-import 'package:ClosetApp/utils/router_utils.dart';
+import 'package:MyCombinationsApp/components/button.dart';
+import 'package:MyCombinationsApp/components/text_field.dart';
+import 'package:MyCombinationsApp/components/title.dart';
+import 'package:MyCombinationsApp/layout/box.dart';
+import 'package:MyCombinationsApp/pages/login/login_page.dart';
+import 'package:MyCombinationsApp/pages/register/register_state_manager.dart';
+import 'package:MyCombinationsApp/utils/router_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 

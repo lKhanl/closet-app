@@ -1,4 +1,4 @@
-import 'package:ClosetApp/utils/validator.dart';
+import 'package:MyCombinationsApp/utils/validator.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../services/auth_service.dart';

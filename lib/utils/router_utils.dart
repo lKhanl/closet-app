@@ -1,4 +1,4 @@
-import 'package:ClosetApp/pages/base_stateless_page.dart';
+import 'package:MyCombinationsApp/pages/base_stateless_page.dart';
 import 'package:get/get.dart';
 
 class RouterUtils {

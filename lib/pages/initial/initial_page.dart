@@ -1,7 +1,7 @@
-import 'package:ClosetApp/components/title.dart';
-import 'package:ClosetApp/layout/box.dart';
-import 'package:ClosetApp/pages/register/register_page.dart';
-import 'package:ClosetApp/utils/router_utils.dart';
+import 'package:MyCombinationsApp/components/title.dart';
+import 'package:MyCombinationsApp/layout/box.dart';
+import 'package:MyCombinationsApp/pages/register/register_page.dart';
+import 'package:MyCombinationsApp/utils/router_utils.dart';
 import 'package:flutter/material.dart';
 
 import '../../components/button.dart';
@@ -18,7 +18,10 @@ class InitialPage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const CustomTitle(text: 'Closet App'),
+          Container(
+            alignment: Alignment.center,
+            child: const CustomTitle(text: 'My Combinations'),
+          ),
           Box.h48,
           Button(
               text: 'Login',
