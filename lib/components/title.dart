@@ -1,4 +1,4 @@
-import 'package:ClosetApp/style/theme_colors.dart';
+import 'package:MyCombinationsApp/style/theme_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomTitle extends StatelessWidget {
