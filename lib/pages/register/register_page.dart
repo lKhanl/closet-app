@@ -26,8 +26,12 @@ class RegisterPage extends BasePage {
             const CustomTitle(text: 'Register', fontSize: 30),
             Box.h24,
             CustomTextField(
-                text: 'Full Name',
-                onChanged: (value) => _registerStateManager.setFullName(value)),
+                text: 'First Name',
+                onChanged: (value) => _registerStateManager.setFirstName(value)),
+            Box.h16,
+            CustomTextField(
+                text: 'Last Name',
+                onChanged: (value) => _registerStateManager.setLastName(value)),
             Box.h16,
             CustomTextField(
                 text: 'Email',
@@ -36,11 +40,6 @@ class RegisterPage extends BasePage {
             CustomTextField(
                 text: 'Password',
                 onChanged: (value) => _registerStateManager.setPassword(value)),
-            Box.h16,
-            CustomTextField(
-                text: 'Password Confirmation',
-                onChanged: (value) =>
-                    _registerStateManager.setPasswordConfirmation(value)),
             Box.h16,
             Button(
               text: 'Register',

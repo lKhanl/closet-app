@@ -22,7 +22,6 @@ class LoginStateManager {
       'Password': _password,
     });
 
-    final success = _authService.login(_email, _password);
-    print(success);
+    _authService.login(_email, _password);
   }
 }
