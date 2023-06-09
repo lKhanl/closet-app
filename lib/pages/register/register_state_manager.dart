@@ -5,10 +5,10 @@ import '../../services/auth_service.dart';
 
 class RegisterStateManager {
   final _service = GetIt.instance.get<AuthService>();
-  String _fullName = '';
+  String _firstName = '';
+  String _lastName = '';
   String _email = '';
   String _password = '';
-  String _passwordConfirmation = '';
 
   void setUsername(String username) {
     _email = username;
@@ -18,26 +18,21 @@ class RegisterStateManager {
     _password = password;
   }
 
-  void setFullName(String fullName) {
-    _fullName = fullName;
+  void setFirstName(String firstName) {
+    _firstName = firstName;
   }
 
-  void setPasswordConfirmation(String passwordConfirmation) {
-    _passwordConfirmation = passwordConfirmation;
+  void setLastName(String lastName) {
+    _lastName = lastName;
   }
 
   void register() {
     validate({
-      'Full Name': _fullName,
+      'Full Name': _firstName,
+      'Last Name': _lastName,
       'Email': _email,
-      'Password': _password,
-      'Password Confirmation': _passwordConfirmation,
+      'Password': _password
     });
-
-    final success =
-        _service.register(_fullName, _email, _password, _passwordConfirmation);
-    if (success) {
-      print(_fullName);
-    }
+    _service.register(_firstName, _lastName, _email, _password);
   }
 }
