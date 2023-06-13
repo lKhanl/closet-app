@@ -12,7 +12,7 @@ class UserService {
   static final String? base = dotenv.env["API_URL"];
 
   Future<User> getProfile() async {
-    final response = await http.get(Uri.parse("$base/api/v1/users"), headers: {
+    final response = await http.get(Uri.parse("$base/api/v1/users/profile"), headers: {
       "Content-Type": "application/json",
       "Authorization": GetStorage().read('token')
     });

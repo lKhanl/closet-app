@@ -5,6 +5,7 @@ class Box extends SizedBox {
   const Box({super.key});
 
   static const SizedBox h4 = SizedBox(height: 4);
+  static const SizedBox h6 = SizedBox(height: 6);
   static const SizedBox h7 = SizedBox(height: 7);
   static const SizedBox h8 = SizedBox(height: 8);
   static const SizedBox h16 = SizedBox(height: 16);

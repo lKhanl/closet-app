@@ -5,8 +5,8 @@ import '../../services/auth_service.dart';
 
 class LoginStateManager {
   final _authService = GetIt.instance.get<AuthService>();
-  String _email = '';
-  String _password = '';
+  String _email = 'string';
+  String _password = 'string';
 
   void setEmail(String email) {
     _email = email;
