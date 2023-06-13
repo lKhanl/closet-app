@@ -36,7 +36,7 @@ class AuthService {
     if (response.statusCode == 200) {
       var token = json.decode(response.body)['jwtToken'];
       GetStorage().write('token', token);
-      Get.offAll(() => const HomePage());
+      Get.offAll(() => HomePage());
     } else {
       if (response.body.contains('BadCredentials')) {
         Get.snackbar('Error', 'Bad Credentials',
