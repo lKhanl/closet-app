@@ -1,7 +1,8 @@
-import 'package:MyCombinationsApp/model/page_model.dart';
 import 'package:MyCombinationsApp/services/shoes_service.dart';
 import 'package:MyCombinationsApp/utils/validator.dart';
 import 'package:get_it/get_it.dart';
+
+import '../../model/shoes_model.dart';
 
 class ShoesStateManager {
   final _shoesService = GetIt.instance.get<ShoesService>();
@@ -19,15 +20,15 @@ class ShoesStateManager {
     _shoesService.createShoes(_name);
   }
 
-  void update() {
+  void update(int id) {
     validate({
       'Name': _name,
     });
 
-    _shoesService.updateShoes(_name);
+    _shoesService.updateShoes(id, _name);
   }
 
-  Future<PagingResult> get() async {
+  Future<List<Shoes>> get() async {
     return await _shoesService.getShoes();
   }
 }

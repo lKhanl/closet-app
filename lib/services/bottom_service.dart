@@ -1,10 +1,12 @@
 import 'dart:convert';
 
+import 'package:MyCombinationsApp/pages/bottom/bottoms_page.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
 
-import '../model/page_model.dart';
+import '../model/bottom_model.dart';
+import '../utils/router_utils.dart';
 import '../utils/snackbar_utils.dart';
 
 class BottomService {
@@ -29,9 +31,9 @@ class BottomService {
     }
   }
 
-  void updateBottom(String name) async {
+  void updateBottom(int id, String name) async {
     final response = await http.put(
-      Uri.parse("$base/api/v1/bottoms"),
+      Uri.parse("$base/api/v1/bottoms/$id"),
       headers: {
         "Content-Type": "application/json",
         "Authorization": GetStorage().read('token')
@@ -48,28 +50,36 @@ class BottomService {
     }
   }
 
-  Future<PagingResult> getBottoms() async {
-    final response = await http.get(Uri.parse("$base/api/v1/bottoms"), headers: {
-      "Content-Type": "application/json",
-      "Authorization": GetStorage().read('token')
-    });
+  Future<List<Bottom>> getBottoms() async {
+    final response = await http.get(Uri.parse("$base/api/v1/bottoms"),
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": GetStorage().read('token')
+        });
 
     if (response.statusCode == 200) {
-      var content = json.decode(response.body)['content'] as List<dynamic>;
-      var totalPages = json.decode(response.body)['totalPages'] as int;
-      var totalElements = json.decode(response.body)['totalElements'] as int;
-      var size = json.decode(response.body)['size'] as int;
-      var page = json.decode(response.body)['page'] as int;
-      var empty = json.decode(response.body)['empty'] as bool;
+      var content = json.decode(response.body);
+      content = content.map<Bottom>((json) => Bottom.fromJson(json)).toList();
+      return content;
+    } else {
+      SnackbarUtils.showError(response.body);
+      throw Exception('Failed to load bottoms');
+    }
+  }
 
-      PagingResult pagingResult = PagingResult(
-          content: content,
-          totalPages: totalPages,
-          totalElements: totalElements,
-          size: size,
-          page: page,
-          empty: empty);
-      return pagingResult;
+  Future<void> delete(int id) async {
+    final response = await http.delete(Uri.parse("$base/api/v1/bottoms/$id"),
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": GetStorage().read('token')
+        });
+
+    if (response.statusCode == 200) {
+      SnackbarUtils.showSuccess(
+        "Success",
+        "Bottom deleted",
+      );
+      RouterUtils.goStateless(BottomPage());
     } else {
       SnackbarUtils.showError(response.body);
       throw Exception('Failed to load bottoms');

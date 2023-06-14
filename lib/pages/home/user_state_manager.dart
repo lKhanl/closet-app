@@ -10,7 +10,7 @@ class UserStateManager {
     return await _userService.getProfile();
   }
 
-  void clear() {
+  clear() {
     _userService.clear();
   }
 }

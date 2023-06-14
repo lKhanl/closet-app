@@ -1,12 +1,12 @@
 class Top {
   late int id;
   late String name;
-  late String url;
+  String? url;
 
   Top({
     required this.id,
     required this.name,
-    required this.url,
+    this.url,
   });
 
   factory Top.fromJson(Map<String, dynamic> json) => Top(
