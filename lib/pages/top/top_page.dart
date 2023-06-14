@@ -11,6 +11,18 @@ class TopPage extends BasePage {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('My Combinations'),
+        actions: [
+          IconButton(
+            onPressed: () async {
+              // await _userStateManager.clear();
+              // RouterUtils.goStateless(LoginPage());
+            },
+            icon: Icon(Icons.logout),
+          ),
+        ],
+      ),
       body: Container(
         padding: const EdgeInsets.fromLTRB(50, 0, 50, 0),
         child: Column(

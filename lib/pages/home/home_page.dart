@@ -1,13 +1,22 @@
-import 'package:MyCombinationsApp/pages/login/login_page.dart';
 import 'package:MyCombinationsApp/pages/home/user_state_manager.dart';
+import 'package:MyCombinationsApp/pages/login/login_page.dart';
+import 'package:MyCombinationsApp/services/service_locator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get_it/get_it.dart';
+import 'package:get_storage/get_storage.dart';
 
 import '../../utils/router_utils.dart';
 import '../top/top_page.dart';
 
-void main() {
-  runApp(LoginPage());
+Future<void> main() async {
+  await dotenv.load(fileName: ".env");
+  await GetStorage.init();
+  setupGetIt();
+  runApp(GetMaterialApp(
+    home: LoginPage(),
+  ));
 }
 
 class HomePage extends StatelessWidget {
@@ -17,6 +26,18 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('My Combinations'),
+        actions: [
+          IconButton(
+            onPressed: () async {
+              await _userStateManager.clear();
+              RouterUtils.goStateless(LoginPage());
+            },
+            icon: Icon(Icons.logout),
+          ),
+        ],
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [

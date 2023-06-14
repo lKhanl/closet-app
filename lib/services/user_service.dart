@@ -12,10 +12,11 @@ class UserService {
   static final String? base = dotenv.env["API_URL"];
 
   Future<User> getProfile() async {
-    final response = await http.get(Uri.parse("$base/api/v1/users/profile"), headers: {
-      "Content-Type": "application/json",
-      "Authorization": GetStorage().read('token')
-    });
+    final response = await http.get(Uri.parse("$base/api/v1/users/profile"),
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": GetStorage().read('token')
+        });
 
     if (response.statusCode == 200) {
       var user = User.fromJson(json.decode(response.body));
@@ -24,5 +25,9 @@ class UserService {
       Get.snackbar('Error', response.body, backgroundColor: ThemeColors.error);
       throw Exception('Failed to load user');
     }
+  }
+
+  void clear() {
+    GetStorage().remove('token');
   }
 }
