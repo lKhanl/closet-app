@@ -9,4 +9,8 @@ class UserStateManager {
   Future<User> get() async {
     return await _userService.getProfile();
   }
+
+  void clear() {
+    _userService.clear();
+  }
 }
