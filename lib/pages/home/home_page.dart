@@ -1,63 +1,213 @@
-import 'package:MyCombinationsApp/components/card.dart';
+import 'package:MyCombinationsApp/pages/login/login_page.dart';
 import 'package:MyCombinationsApp/pages/home/user_state_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
-import '../../layout/box.dart';
 import '../../utils/router_utils.dart';
 import '../top/top_page.dart';
 
+void main() {
+  runApp(LoginPage());
+}
+
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
-
-  final _userStateManager = GetIt.instance.get<UserStateManager>();
+  final _userStateManager = GetIt.I.get<UserStateManager>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Row(children: [
-          Center(
-              child: FutureBuilder(
-                  future: _userStateManager.get(),
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      var user = snapshot.data!;
-                      return Center(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          FutureBuilder(
+            future: _userStateManager.get(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                var user = snapshot.data!;
+                return Container(
+                  padding: EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Color.fromARGB(255, 228, 232, 235),
+                        Color.fromARGB(255, 204, 209, 212),
+                      ],
+                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      SizedBox(height: 30),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.3),
+                              spreadRadius: 2,
+                              blurRadius: 5,
+                              offset: Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        padding: EdgeInsets.all(16),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            CircleAvatar(
+                              radius: 30,
+                              backgroundImage:
+                                  AssetImage('assets/images/logo.png'),
+                            ),
+                            SizedBox(width: 10),
+                            Text(
+                              'Welcome!',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        "${user.firstName} ${user.lastName}",
+                        style: TextStyle(
+                          fontSize: 16,
+                        ),
+                      ),
+                      SizedBox(height: 16),
+                      InkWell(
+                        onTap: () => RouterUtils.goStateless(TopPage()),
                         child: Container(
-                            margin: const EdgeInsets.fromLTRB(25, 0, 25, 0),
-                            child: Text("${user.firstName} ${user.lastName}")),
-                      );
-                    } else if (snapshot.hasError) {
-                      return Text("${snapshot.error}");
-                    }
-                    return const CircularProgressIndicator();
-                  })),
-        ]),
-        Box.h48,
-        Row(
-          children: [
-            Box.w16,
-            CustomCard(
-              text: 'My Tops',
-              onTap: () => RouterUtils.goStateless(TopPage()),
-            ),
-            Box.w8,
-            CustomCard(text: 'My Bottoms'),
-            Box.w16,
-          ],
-        ),
-        Box.h8,
-        Row(
-          children: [
-            Box.w16,
-            CustomCard(text: 'My Shoes'),
-            Box.w8,
-            CustomCard(text: 'Combinations'),
-            Box.w16,
-          ],
-        ),
-      ]),
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                Color.fromARGB(255, 69, 76, 82),
+                                Color.fromARGB(255, 132, 141, 148),
+                              ],
+                            ),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          height: 100,
+                          child: Center(
+                            child: Text(
+                              'Top',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 24,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 16),
+                      InkWell(
+                        onTap: () => RouterUtils.goStateless(TopPage()),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                Color.fromARGB(255, 132, 141, 148),
+                                Color.fromARGB(255, 69, 76, 82),
+                              ],
+                            ),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          height: 100,
+                          child: Center(
+                            child: Text(
+                              'Bottom',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 24,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 16),
+                      InkWell(
+                        onTap: () => RouterUtils.goStateless(TopPage()),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                Color.fromARGB(255, 69, 76, 82),
+                                Color.fromARGB(255, 132, 141, 148),
+                              ],
+                            ),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          height: 100,
+                          child: Center(
+                            child: Text(
+                              'Shoes',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 24,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 16),
+                      InkWell(
+                        onTap: () => RouterUtils.goStateless(TopPage()),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                Color.fromARGB(255, 132, 141, 148),
+                                Color.fromARGB(255, 69, 76, 82),
+                              ],
+                            ),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          height: 100,
+                          child: Center(
+                            child: Text(
+                              'Combination',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 24,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              } else if (snapshot.hasError) {
+                return Center(
+                  child: Text(
+                    "${snapshot.error}",
+                    style: TextStyle(
+                      color: Colors.red,
+                    ),
+                  ),
+                );
+              }
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            },
+          ),
+        ],
+      ),
     );
   }
 }
