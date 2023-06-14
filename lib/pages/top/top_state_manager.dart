@@ -1,4 +1,4 @@
-import 'package:MyCombinationsApp/model/page_model.dart';
+import 'package:MyCombinationsApp/model/top_model.dart';
 import 'package:MyCombinationsApp/services/top_service.dart';
 import 'package:MyCombinationsApp/utils/validator.dart';
 import 'package:get_it/get_it.dart';
@@ -19,15 +19,19 @@ class TopStateManager {
     _topService.createTop(_name);
   }
 
-  void update() {
+  void update(int id) {
     validate({
       'Name': _name,
     });
 
-    _topService.updateTop(_name);
+    _topService.updateTop(id, _name);
   }
 
-  Future<PagingResult> getTops() async {
+  Future<List<Top>> getTops() async {
     return await _topService.getTops();
+  }
+
+  void delete(int id) {
+    _topService.delete(id);
   }
 }

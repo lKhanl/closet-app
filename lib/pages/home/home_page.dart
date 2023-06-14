@@ -1,5 +1,8 @@
+import 'package:MyCombinationsApp/pages/bottom/bottoms_page.dart';
+import 'package:MyCombinationsApp/pages/combine/combines_page.dart';
 import 'package:MyCombinationsApp/pages/home/user_state_manager.dart';
 import 'package:MyCombinationsApp/pages/login/login_page.dart';
+import 'package:MyCombinationsApp/pages/shoes/shoes_page.dart';
 import 'package:MyCombinationsApp/services/service_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -78,10 +81,15 @@ class HomePage extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            CircleAvatar(
-                              radius: 30,
-                              backgroundImage:
-                                  AssetImage('assets/images/logo.png'),
+                            Container(
+                              height: 46,
+                              width: 46,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.blue,
+                              ),
+                              child: Icon(Icons.person, color: Colors.white,),
+                              alignment: Alignment.center,
                             ),
                             SizedBox(width: 10),
                             Text(
@@ -130,7 +138,7 @@ class HomePage extends StatelessWidget {
                       ),
                       SizedBox(height: 16),
                       InkWell(
-                        onTap: () => RouterUtils.goStateless(TopPage()),
+                        onTap: () => RouterUtils.goStateless(BottomPage()),
                         child: Container(
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
@@ -157,7 +165,7 @@ class HomePage extends StatelessWidget {
                       ),
                       SizedBox(height: 16),
                       InkWell(
-                        onTap: () => RouterUtils.goStateless(TopPage()),
+                        onTap: () => RouterUtils.goStateless(ShoesPage()),
                         child: Container(
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
@@ -184,7 +192,7 @@ class HomePage extends StatelessWidget {
                       ),
                       SizedBox(height: 16),
                       InkWell(
-                        onTap: () => RouterUtils.goStateless(TopPage()),
+                        onTap: () => RouterUtils.goStateless(CombinePage()),
                         child: Container(
                           decoration: BoxDecoration(
                             gradient: LinearGradient(

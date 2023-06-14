@@ -5,4 +5,9 @@ class RouterUtils {
   static void goStateless(BasePage page) {
     Get.offAll(() => page);
   }
+
+  static void goAndReturn(BasePage page) {
+    Get.to(() => page);
+  }
+
 }

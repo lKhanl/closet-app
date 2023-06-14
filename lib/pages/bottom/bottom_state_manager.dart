@@ -3,6 +3,8 @@ import 'package:MyCombinationsApp/services/bottom_service.dart';
 import 'package:MyCombinationsApp/utils/validator.dart';
 import 'package:get_it/get_it.dart';
 
+import '../../model/bottom_model.dart';
+
 class BottomStateManager {
   final _bottomService = GetIt.instance.get<BottomService>();
   String _name = '';
@@ -19,15 +21,20 @@ class BottomStateManager {
     _bottomService.createBottom(_name);
   }
 
-  void update() {
+  void update(int id) {
     validate({
       'Name': _name,
     });
 
-    _bottomService.updateBottom(_name);
+    _bottomService.updateBottom(id, _name);
   }
 
-  Future<PagingResult> get() async {
+  Future<List<Bottom>> get() async {
     return await _bottomService.getBottoms();
   }
+
+  void delete(int id) {
+    _bottomService.delete(id);
+  }
+
 }
