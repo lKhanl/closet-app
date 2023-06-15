@@ -14,14 +14,15 @@ class InitialPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: ThemeColors.purpleLight,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('../assets/images/background.jpg'),
+          fit: BoxFit.cover,
+        ),
+      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-            alignment: Alignment.center,
-            child: const CustomTitle(text: 'My Combinations'),
-          ),
           Box.h48,
           Button(
               text: 'Login',
