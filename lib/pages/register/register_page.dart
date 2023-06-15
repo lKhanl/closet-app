@@ -19,15 +19,21 @@ class RegisterPage extends BasePage {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: const EdgeInsets.fromLTRB(50, 0, 50, 0),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('../assets/images/register.jpg'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        padding: const EdgeInsets.fromLTRB(50, 30, 50, 0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const CustomTitle(text: 'Register', fontSize: 30),
             Box.h24,
             CustomTextField(
                 text: 'First Name',
-                onChanged: (value) => _registerStateManager.setFirstName(value)),
+                onChanged: (value) =>
+                    _registerStateManager.setFirstName(value)),
             Box.h16,
             CustomTextField(
                 text: 'Last Name',

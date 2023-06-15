@@ -11,6 +11,7 @@ import 'package:get_it/get_it.dart';
 import 'package:get_storage/get_storage.dart';
 
 import '../../utils/router_utils.dart';
+import '../profile/profile_page.dart';
 import '../top/top_page.dart';
 
 Future<void> main() async {
@@ -51,26 +52,17 @@ class HomePage extends StatelessWidget {
                 var user = snapshot.data!;
                 return Container(
                   padding: EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Color.fromARGB(255, 228, 232, 235),
-                        Color.fromARGB(255, 204, 209, 212),
-                      ],
-                    ),
-                  ),
                   child: Column(
                     children: [
                       SizedBox(height: 30),
                       Container(
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: Color.fromARGB(255, 255, 252, 252),
                           borderRadius: BorderRadius.circular(10),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.grey.withOpacity(0.3),
+                              color: Color.fromARGB(255, 27, 25, 25)
+                                  .withOpacity(0.3),
                               spreadRadius: 2,
                               blurRadius: 5,
                               offset: Offset(0, 3),
@@ -82,13 +74,13 @@ class HomePage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Container(
-                              height: 46,
-                              width: 46,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.blue,
+                              child: IconButton(
+                                icon: Icon(Icons.person),
+                                onPressed: () {
+                                  RouterUtils.goStateless(ProfilePage());
+                                },
+                                color: Colors.purple,
                               ),
-                              child: Icon(Icons.person, color: Colors.white,),
                               alignment: Alignment.center,
                             ),
                             SizedBox(width: 10),
@@ -107,6 +99,7 @@ class HomePage extends StatelessWidget {
                         "${user.firstName} ${user.lastName}",
                         style: TextStyle(
                           fontSize: 16,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                       SizedBox(height: 16),
@@ -118,8 +111,8 @@ class HomePage extends StatelessWidget {
                               begin: Alignment.topCenter,
                               end: Alignment.bottomCenter,
                               colors: [
-                                Color.fromARGB(255, 69, 76, 82),
-                                Color.fromARGB(255, 132, 141, 148),
+                                Color.fromARGB(255, 92, 3, 95),
+                                Color.fromARGB(255, 206, 59, 198),
                               ],
                             ),
                             borderRadius: BorderRadius.circular(10.0),
@@ -142,11 +135,11 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter,
                               colors: [
-                                Color.fromARGB(255, 132, 141, 148),
-                                Color.fromARGB(255, 69, 76, 82),
+                                Color.fromARGB(255, 92, 3, 95),
+                                Color.fromARGB(255, 206, 59, 198),
                               ],
                             ),
                             borderRadius: BorderRadius.circular(10.0),
@@ -169,11 +162,11 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter,
                               colors: [
-                                Color.fromARGB(255, 69, 76, 82),
-                                Color.fromARGB(255, 132, 141, 148),
+                                Color.fromARGB(255, 92, 3, 95),
+                                Color.fromARGB(255, 206, 59, 198),
                               ],
                             ),
                             borderRadius: BorderRadius.circular(10.0),
@@ -199,8 +192,8 @@ class HomePage extends StatelessWidget {
                               begin: Alignment.topCenter,
                               end: Alignment.bottomCenter,
                               colors: [
-                                Color.fromARGB(255, 132, 141, 148),
-                                Color.fromARGB(255, 69, 76, 82),
+                                Color.fromARGB(255, 103, 5, 168),
+                                Color.fromARGB(210, 113, 32, 160),
                               ],
                             ),
                             borderRadius: BorderRadius.circular(10.0),
